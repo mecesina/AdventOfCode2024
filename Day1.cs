@@ -1,12 +1,21 @@
 ﻿namespace AoC2024D1P1
 {
-    internal class Day1
+    internal class Day1 //ADD EXCEPTION HANDLING
     {
-        static string[] inputStr = File.ReadAllLines("..\\AoC2024D1P1_input.txt"); //parses by \n
-        int[] leftColumn = new int[inputStr.Length];
-        int[] rightColumn = new int[inputStr.Length];
+        private readonly PathsService _pathsService;
+        private readonly string[] _inputStr;
+        private int[] leftColumn;
+        private int[] rightColumn;
 
-        public void HandleFlow()
+        public Day1(PathsService service)
+        {
+            _pathsService = service;
+            _inputStr = _pathsService.ReadAllLines(nameof(Paths.InputStrDay1)); //parses by \n
+            leftColumn = new int[_inputStr.Length];
+            rightColumn = new int[_inputStr.Length];
+        }
+
+        internal void HandleFlow()
         {
             ParseInput();
             int result = CalculateDistance();
@@ -17,9 +26,9 @@
 
         private void ParseInput()
         {
-            for (int i = 0; i < inputStr.Length; i++)
+            for (int i = 0; i < _inputStr.Length; i++)
             {
-                string[] separatedValuesStr = inputStr[i].Split(new[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] separatedValuesStr = _inputStr[i].Split(new[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
                 leftColumn[i] = int.Parse(separatedValuesStr[0]);
                 rightColumn[i] = int.Parse(separatedValuesStr[1]);

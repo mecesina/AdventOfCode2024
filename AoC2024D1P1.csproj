@@ -5,6 +5,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>56fdd047-f8b2-44cf-826f-855dc777f2f4</UserSecretsId>
   </PropertyGroup>
-
+	<ItemGroup>
+		<InternalsVisibleTo Include="TestAventOfCode2024" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0" />
+	</ItemGroup>
 </Project>
